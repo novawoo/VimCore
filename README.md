@@ -6,7 +6,7 @@ date 2013.4.16
 基于AHK编写的一个热键、插件、简单宏的API功能集，用于VIATC 0.6.0 的核心，也可以被其它脚本调用。
 
 =======
-API 
+API 列表
 
   . RegisterHotkey(Key,Action,Class="")
     注册热键 并保存记录
