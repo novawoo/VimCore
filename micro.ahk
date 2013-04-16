@@ -1,0 +1,3 @@
+﻿#z::
+	Reload
+Return
