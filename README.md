@@ -3,6 +3,39 @@ VimCore
 
 基于AHK编写的一个热键、插件、简单宏的API功能集，用于VIATC 0.6.0 的核心，也可以被其它脚本调用。
 
+How to
+=======
+  - 在AHK脚本中#include vimcore.ahk
+  - 如需要注册热键
+    - 调用RegiserHotkey("abcd","\<label\>","notepad") 保存并记录热键，支持多键
+    - 调用SetHotkey("shift & a","\<label\>","notepad") 记录热键，不保存记录，而且不支持多键
+  - 如果需要控制热键启用/禁用
+    - 调用HotkeyControl(control) 当control为true的时候，启用热键 ，当control为false的时候，禁用热键
+  - 如果需要添加动作描述
+    - 调用CustomActions("\<label\>","测试")
+  - 如果需要添加插件，请将插件脚本放置脚本目录的actions\子目录中。
+  
+  - 变量及数据(超级全局变量)
+    - Vim_HotkeyList 
+      - 用于保存所有Vimcore的热键体
+      - 数据组成 : " 10|TTOTAL_CMD7|\<lwin\>e6|\<test\> "
+      - 左右各带一个Tab
+    	- 第一个数字加|, 10| 描述CLASS有10位长，即TTOTAL_CMD
+	    - 第二个数字加|, 7| 描述Key有7位长，即<lwin>e
+    	- 第三个数字加|, 6| 描述Action有6位长，即<test>
+    - Vim_HotkeyExist
+      - 用于保存当前存在的热键
+    - Vim_HotkeyTemp
+      - 用于保存已经添加的热键
+    - Vim_HotkeyCount
+      - 用于保存Count
+    - Vim_Actions
+      - 用于保存Action的描述
+    - Vim_Mode
+      - 用于控制Vim的模式
+    - Vim_Repeat
+      - 用于保存Repeat（重复上一次动作）的数据
+
 API 列表
 =======
 
